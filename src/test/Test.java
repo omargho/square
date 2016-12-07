@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-
 public class Test {
 
 	public static void main(String[] args) throws FileNotFoundException {
@@ -28,8 +27,9 @@ public class Test {
 				char command = commands.charAt(i);
 				if (command == 'G' || command == 'D')
 					direction = turn(directions, direction, command);
+
 				else {
-					// go
+					// go forward
 					if (direction == 'N' && x > 1)
 						x--;
 					if (direction == 'E' && y < yLimit)
@@ -39,7 +39,6 @@ public class Test {
 					if (direction == 'W' && y > 1)
 						y--;
 				}
-				
 			}
 			System.out.println(x + " " + y + " " + direction);
 		}
@@ -47,9 +46,10 @@ public class Test {
 
 	private static char turn(String directions, char direction, char command) {
 		if (command == 'D')
-		direction = directions.charAt((directions.indexOf(direction + "") + 1) % directions.length());
+			direction = directions.charAt((directions.indexOf(direction + "") + 1) % directions.length());
 		else
-		direction = directions.charAt((directions.indexOf(direction + "") - 1 + directions.length()) % directions.length());
+			direction = directions
+					.charAt((directions.indexOf(direction + "") - 1 + directions.length()) % directions.length());
 		return direction;
 	}
 }
