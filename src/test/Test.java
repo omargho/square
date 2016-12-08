@@ -19,8 +19,6 @@ public class Test {
 			char direction = in.next().charAt(0);
 			String commands = in.next();
 
-			if (direction == 'N')
-				y++;
 
 			for (int i = 0; i < commands.length(); i++) {
 
@@ -30,14 +28,14 @@ public class Test {
 
 				else {
 					// go forward
-					if (direction == 'N' && x > 1)
-						x--;
-					if (direction == 'E' && y < yLimit)
+					if (direction == 'N' && y < yLimit)
 						y++;
-					if (direction == 'S' && x < xLimit)
+					if (direction == 'E' && x <xLimit)
 						x++;
-					if (direction == 'W' && y > 1)
+					if (direction == 'S' && y >0)
 						y--;
+					if (direction == 'W' && x >0)
+						x--;
 				}
 			}
 			System.out.println(x + " " + y + " " + direction);
